@@ -1,0 +1,27 @@
+{
+  "name": "ahsay/php-sdk",
+  "description": "Ahsay PHP SDK for OBS and CBS",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "type": "library",
+  "autoload": {
+    "psr-4": {
+      "Ahsay\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Daniel Costa",
+      "email": "danielcosta@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.1",
+    "ext-curl": "*",
+    "ext-json": "*"
+  },
+  "require-dev": {
+    "phpstan/phpstan": "^0.11.5",
+    "squizlabs/php_codesniffer": "^3.0"
+  }
+}
