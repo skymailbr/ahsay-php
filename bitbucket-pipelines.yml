@@ -3,7 +3,7 @@
 # Only use spaces to indent your .yml configuration.
 # -----
 # You can specify a custom docker image from Docker Hub as your build environment.
-image: composer
+image: daccbr/ahsay-php
 
 pipelines:
   default:
@@ -14,6 +14,7 @@ pipelines:
           - composer install
           - vendor/bin/phpstan analyse -l ${PHPSTAN_LEVEL:-1} --no-progress src/
           - vendor/bin/phpcs --standard=PSR2 -n src/
+          - vendor/bin/phpunit --coverage-text
 
   branches:
     '*':
@@ -24,6 +25,7 @@ pipelines:
             - composer install
             - if CHANGED_FILES=$(git diff --name-only --diff-filter=ACMRTUXB "HEAD~..HEAD" | grep .php) ; then vendor/bin/phpstan analyse -l ${PHPSTAN_LEVEL:-1} --no-progress ${CHANGED_FILES}; fi
             - if CHANGED_FILES=$(git diff --name-only --diff-filter=ACMRTUXB "HEAD~..HEAD" | grep .php) ; then vendor/bin/phpcs --standard=PSR2 -n ${CHANGED_FILES}; fi
+            - vendor/bin/phpunit --coverage-text
 
   pull-requests:
     '**':
@@ -34,3 +36,4 @@ pipelines:
             - composer install
             - if CHANGED_FILES=$(git diff --name-only origin/$BITBUCKET_BRANCH origin/$BITBUCKET_PR_DESTINATION_BRANCH | grep .php) ; then vendor/bin/phpstan analyse -l ${PHPSTAN_LEVEL:-1} --no-progress ${CHANGED_FILES}; fi
             - if CHANGED_FILES=$(git diff --name-only origin/$BITBUCKET_BRANCH origin/$BITBUCKET_PR_DESTINATION_BRANCH | grep .php) ; then vendor/bin/phpcs --standard=PSR2 -n ${CHANGED_FILES}; fi
+            - vendor/bin/phpunit --coverage-text

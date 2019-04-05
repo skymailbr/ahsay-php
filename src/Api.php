@@ -16,10 +16,10 @@ class Api extends AbstractApi
      */
     public function getUserApi()
     {
-        if (isset($this->instances['user'])) {
-            return $this->instances['user'];
+        if (!isset($this->instances['user'])) {
+            $this->instances['user'] = new UserApi($this->getClient());
         }
 
-        $this->instances['user'] = new UserApi($this->getClient());
+        return $this->instances['user'];
     }
 }
