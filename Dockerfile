@@ -8,4 +8,5 @@ RUN docker-php-ext-enable xdebug
 
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
-    git
+    git \
+    unzip
