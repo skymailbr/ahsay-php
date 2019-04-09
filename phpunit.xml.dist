@@ -19,11 +19,10 @@
         </whitelist>
     </filter>
     <logging>
-        <log type="tap" target="/tmp/report-tap.tap"/>
-        <log type="junit" target="/tmp/report-junit.xml"/>
-        <log type="coverage-html" target="/tmp/report-html" lowUpperBound="35" highLowerBound="70"/>
+        <log type="junit" target="build/report-junit.xml"/>
+        <log type="coverage-html" target="build/report-html" lowUpperBound="35" highLowerBound="70"/>
+        <log type="coverage-clover" target="build/report-clover.xml"/>
         <log type="coverage-text" target="php://stdout" showOnlySummary="true" showUncoveredFiles="true" />
-        <log type="coverage-clover" target="/tmp/report-clover.xml"/>
     </logging>
 
 </phpunit>
