@@ -1,10 +1,10 @@
 <?php
 
-namespace Ahsay\Test\User;
+namespace Ahsay\Test\System;
 
 use Ahsay\Test\AbstractTestCase;
-use Ahsay\User\Api;
-use Ahsay\User\User;
+use Ahsay\System\Api;
+use Ahsay\System\User;
 
 class ApiTest extends AbstractTestCase
 {
