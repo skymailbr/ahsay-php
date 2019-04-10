@@ -1,9 +1,9 @@
 <?php
 
-namespace Ahsay\Test\User;
+namespace Ahsay\Test\Api\User;
 
 use Ahsay\Test\AbstractTestCase;
-use Ahsay\User\User;
+use Ahsay\Api\User\User;
 
 class UserTest extends AbstractTestCase
 {

@@ -1,6 +1,8 @@
 <?php
 
-namespace Ahsay;
+namespace Ahsay\Api;
+
+use Ahsay\Client;
 
 class AbstractApi
 {

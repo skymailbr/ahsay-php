@@ -2,7 +2,7 @@
 
 namespace Ahsay;
 
-use Ahsay\User\User;
+use Ahsay\Api\User\User;
 
 class Client
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Ahsay\Test\System;
+namespace Ahsay\Test\Api\System;
 
-use Ahsay\System\GroupPolicy;
+use Ahsay\Api\System\GroupPolicy;
 use Ahsay\Test\AbstractTestCase;
 
 class GroupPolicyTest extends AbstractTestCase

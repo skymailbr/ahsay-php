@@ -1,8 +1,8 @@
 <?php
 
-namespace Ahsay\System;
+namespace Ahsay\Api\System;
 
-use Ahsay\AbstractApi;
+use Ahsay\Api\AbstractApi;
 
 class User extends AbstractApi
 {

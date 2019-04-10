@@ -1,8 +1,8 @@
 <?php
 
-namespace Ahsay\Test\System;
+namespace Ahsay\Test\Api\System;
 
-use Ahsay\System\Config;
+use Ahsay\Api\System\Config;
 use Ahsay\Test\AbstractTestCase;
 
 class ConfigTest extends AbstractTestCase

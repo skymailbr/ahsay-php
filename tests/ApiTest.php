@@ -10,6 +10,6 @@ class ApiTest extends AbstractTestCase
     {
         $api = new Api($this->getClient());
 
-        $this->assertInstanceOf(\Ahsay\User\Api::class, $api->getUserApi());
+        $this->assertInstanceOf(Api\UserApi::class, $api->getUserApi());
     }
 }

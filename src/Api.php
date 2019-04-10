@@ -2,7 +2,8 @@
 
 namespace Ahsay;
 
-use Ahsay\User\Api as UserApi;
+use Ahsay\Api\AbstractApi;
+use Ahsay\Api\UserApi as UserApi;
 
 class Api extends AbstractApi
 {

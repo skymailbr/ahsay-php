@@ -1,10 +1,11 @@
 <?php
 
-namespace Ahsay\System;
+namespace Ahsay\Api;
 
-use Ahsay\AbstractApi;
+use Ahsay\Api\AbstractApi;
+use Ahsay\Api\System\User;
 
-class Api extends AbstractApi
+class SystemApi extends AbstractApi
 {
     /**
      * @var array
