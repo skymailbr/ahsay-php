@@ -23,7 +23,8 @@
   "require": {
     "php": ">=7.1",
     "ext-curl": "*",
-    "ext-json": "*"
+    "ext-json": "*",
+    "myclabs/php-enum": "^1.6"
   },
   "require-dev": {
     "ext-dom": "*",
