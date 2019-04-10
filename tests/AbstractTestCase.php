@@ -14,4 +14,18 @@ class AbstractTestCase extends TestCase
     {
         return $client = new Client('user', 'pwd', 'https://backup-domain.com');
     }
+
+    protected function getMockedClient()
+    {
+        $client = $this->getMockBuilder(Client::class)
+            ->disableOriginalConstructor()
+            ->setMethods(['request'])
+            ->getMock();
+        $client->expects($this->once())
+            ->method('request')
+            ->withAnyParameters()
+            ->willReturn(['Status' => 'OK', 'Data' => []]);
+
+        return $client;
+    }
 }
