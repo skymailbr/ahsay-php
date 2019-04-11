@@ -12,4 +12,11 @@ class ApiTest extends AbstractTestCase
 
         $this->assertInstanceOf(Api\UserApi::class, $api->getUserApi());
     }
+
+    public function testGetSystemApi()
+    {
+        $api = new Api($this->getClient());
+
+        $this->assertInstanceOf(Api\SystemApi::class, $api->getSystemApi());
+    }
 }
