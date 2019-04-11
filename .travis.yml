@@ -20,6 +20,6 @@ install:
   - travis_retry composer install --prefer-dist --no-interaction --no-suggest
 
 script:
-  - vendor/bin/phpstan analyse -l ${PHPSTAN_LEVEL:-1} --no-progress src/
+  - vendor/bin/phpstan analyse -l ${PHPSTAN_LEVEL:-7} --no-progress src/
   - vendor/bin/phpcs --standard=PSR2 -n src/
   - vendor/bin/phpunit --coverage-text
