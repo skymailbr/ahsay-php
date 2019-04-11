@@ -10,7 +10,7 @@ class SystemApi extends AbstractApi
     protected $instances = [];
 
     /**
-     * @return Config
+     * @return System\Config
      */
     public function config()
     {
@@ -22,7 +22,7 @@ class SystemApi extends AbstractApi
     }
 
     /**
-     * @return GroupPolicy
+     * @return System\GroupPolicy
      */
     public function groupPolicy()
     {
@@ -34,7 +34,7 @@ class SystemApi extends AbstractApi
     }
 
     /**
-     * @return User
+     * @return System\User
      */
     public function user()
     {

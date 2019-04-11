@@ -10,7 +10,7 @@ class UserApi extends AbstractApi
     protected $instances = [];
 
     /**
-     * @return User
+     * @return User\User
      */
     public function user()
     {
