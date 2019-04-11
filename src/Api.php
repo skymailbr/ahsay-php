@@ -3,7 +3,8 @@
 namespace Ahsay;
 
 use Ahsay\Api\AbstractApi;
-use Ahsay\Api\UserApi as UserApi;
+use Ahsay\Api\SystemApi;
+use Ahsay\Api\UserApi;
 
 class Api extends AbstractApi
 {
@@ -22,5 +23,17 @@ class Api extends AbstractApi
         }
 
         return $this->instances['user'];
+    }
+
+    /**
+     * @return SystemApi
+     */
+    public function getSystemApi()
+    {
+        if (!isset($this->instances['system'])) {
+            $this->instances['system'] = new SystemApi($this->getClient());
+        }
+
+        return $this->instances['system'];
     }
 }
