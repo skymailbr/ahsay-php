@@ -2,8 +2,6 @@
 
 namespace Ahsay;
 
-use Ahsay\Api\User\User;
-
 class Client
 {
     /**
@@ -20,8 +18,6 @@ class Client
      * @var string
      */
     private $application = 'obs';
-
-    private $instances = [];
 
     /**
      * @var string
@@ -112,8 +108,8 @@ class Client
             throw new \RuntimeException(json_last_error_msg(), json_last_error());
         }
 
-        if (isset($data['Status']) && $data['Status'] === 'OK' && isset($data['Data'])) {
-            return $data['Data'];
+        if (isset($data['Status']) && $data['Status'] === 'Error' && isset($data['Message'])) {
+            throw new \Exception($data['Message']);
         }
 
         return $data;

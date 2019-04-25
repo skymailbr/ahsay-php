@@ -15,6 +15,7 @@ class AbstractApi
     {
         $this->client = $client;
     }
+
     /**
      * @return Client
      */

@@ -98,13 +98,30 @@ class ClientTest extends AbstractTestCase
         $this->getClient()->request('endpoint');
     }
 
+    public function testRequestThrowingExceptionOnResponseError()
+    {
+        $error = [
+            'Status' => 'Error',
+            'Message' => '[UserCacheManager.NoSuchUserExpt] User \'aaaa\' not found.',
+            'ExptType' => 'com.ahsay.obs.core.dbs.ad'
+        ];
+
+        $fn1 = $this->getFunctionMock('Ahsay', 'curl_exec');
+        $fn1->expects($this->once())->willReturn(json_encode($error));
+
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('[UserCacheManager.NoSuchUserExpt] User \'aaaa\' not found.');
+
+        $this->getClient()->request('endpoint');
+    }
+
     public function testRequestWithSuccessWillReturnData()
     {
         $fn1 = $this->getFunctionMock('Ahsay', 'curl_exec');
         $fn1->expects($this->once())->willReturn('{"Status":"OK","Data":{"Key":"Value"}}');
 
         $result = $this->getClient()->request('endpoint');
-        $this->assertEquals(['Key' => 'Value'], $result);
+        $this->assertEquals(['Status' => 'OK', 'Data' => ['Key' => 'Value']], $result);
     }
 
     public function testRequestWithSuccessWithNoDataKeyWillReturnItself()
