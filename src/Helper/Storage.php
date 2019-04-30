@@ -6,11 +6,9 @@ use Ahsay\Enum\StorageUnit;
 
 final class Storage
 {
-    public static function toBytes(float $amount, StorageUnit $unit): ?int
+    public static function toBytes(float $amount, StorageUnit $unit): ?float
     {
-        if (FALSE === $exponent = array_search($unit, array_values(StorageUnit::values()))) {
-            throw new \Exception('Invalid storage unit');
-        }
+        $exponent = array_search($unit, array_values(StorageUnit::values()));
 
         return $amount * (1024 ** $exponent);
     }

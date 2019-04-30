@@ -6,8 +6,16 @@ use Ahsay\Test\AbstractTestCase;
 use Ahsay\Enum\StorageUnit;
 use Ahsay\Helper\Storage;
 
-class StorageTest extends AbstractTestCase
+class StorageTest extends \PHPUnit\Framework\TestCase
 {
+    public function testToBytesThrowExceptionOnInvalidStorageUnit()
+    {
+        $this->expectException(\UnexpectedValueException::class);
+        $this->expectExceptionMessage('Value \'1\' is not part of the enum Ahsay\\Enum\StorageUnit');
+
+        $result = Storage::toBytes(100, new StorageUnit(1));
+    }
+
     public function testGigabyteToByte()
     {
         $result = Storage::toBytes(100, StorageUnit::GIGABYTE());
