@@ -69,6 +69,7 @@ class User extends AbstractApi
      * @param string $login
      * @param string $yearMonth
      * @param string $backupSetId
+     * @param string $owner
      * @return array
      */
     public function getUserStorageStat(
@@ -92,6 +93,7 @@ class User extends AbstractApi
 
     /**
      * @param string $login
+     * @param string $owner
      * @return array
      */
     public function getUser(string $login, string $owner = null): array
@@ -110,6 +112,7 @@ class User extends AbstractApi
     /**
      * @param string $login
      * @param Status $status
+     * @param string $owner
      * @return array
      */
     public function modifyUserStatus(string $login, Status $status, string $owner = null): array
@@ -124,5 +127,23 @@ class User extends AbstractApi
         }
 
         return $this->getClient()->request('ModifyUserStatus.do', $data);
+    }
+
+    /**
+     * @param string $login
+     * @param string $owner
+     * @return array
+     */
+    public function removeUser(string $login, string $owner = null): array
+    {
+        $data = [
+            'LoginName' => $login,
+        ];
+
+        if (!is_null($owner)) {
+            $data['Owner'] = $owner;
+        }
+
+        return $this->getClient()->request('RemoveUser.do', $data);
     }
 }
