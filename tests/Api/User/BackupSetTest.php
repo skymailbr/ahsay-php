@@ -30,4 +30,12 @@ class BackupSetTest extends AbstractTestCase
 
         $this->assertIsArray($response);
     }
+
+    public function testListBackupJobs()
+    {
+        $api = new BackupSet($this->getMockedClient());
+        $response = $api->listBackupJobs('username', false);
+
+        $this->assertIsArray($response);
+    }
 }

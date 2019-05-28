@@ -49,4 +49,19 @@ class BackupSet extends AbstractApi
 
         return $this->getClient()->request('GetBackupJobProgress.do', $data);
     }
+
+    /**
+     * @param string $login
+     * @param boolean $skipEmpty
+     * @return array
+     */
+    public function listBackupJobs(string $login, $skipEmpty = true): array
+    {
+        $data = [
+            'LoginName' => $login,
+            'SkipEmpty' => $skipEmpty,
+        ];
+
+        return $this->getClient()->request('ListBackupJobs.do', $data);
+    }
 }
