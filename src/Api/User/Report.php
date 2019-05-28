@@ -13,7 +13,7 @@ class Report extends AbstractApi
         string $login,
         string $backupSetId,
         string $backupJobId,
-        string $destinationId = null,
+        string $destinationId,
         string $owner = null,
         bool $cdp = null
     ): array {
@@ -21,11 +21,8 @@ class Report extends AbstractApi
             'LoginName' => $login,
             'BackupSetID' => $backupSetId,
             'BackupJobID' => $backupJobId,
+            'DestionationID' => $destinationId,
         ];
-
-        if (!is_null($destinationId)) {
-            $data['DestionationID'] = $destinationId;
-        }
 
         if (!is_null($owner)) {
             $data['Owner'] = $owner;
