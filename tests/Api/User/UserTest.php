@@ -59,4 +59,12 @@ class UserTest extends AbstractTestCase
 
         $this->assertIsArray($response);
     }
+
+    public function testRemoveUser()
+    {
+        $api = new User($this->getMockedClient());
+        $response = $api->removeUser('login', '0wner');
+
+        $this->assertIsArray($response);
+    }
 }
