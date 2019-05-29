@@ -21,7 +21,7 @@ class Report extends AbstractApi
             'LoginName' => $login,
             'BackupSetID' => $backupSetId,
             'BackupJobID' => $backupJobId,
-            'DestionationID' => $destinationId,
+            'DestinationID' => $destinationId,
         ];
 
         if (!is_null($owner)) {
