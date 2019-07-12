@@ -67,4 +67,12 @@ class UserTest extends AbstractTestCase
 
         $this->assertIsArray($response);
     }
+
+    public function testAddContact()
+    {
+        $api = new User($this->getMockedClient());
+        $response = $api->addContact('login', 'Contact Name', 'new.email@contact.com', '0wner');
+
+        $this->assertIsArray($response);
+    }
 }

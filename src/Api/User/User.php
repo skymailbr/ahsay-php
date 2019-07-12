@@ -146,4 +146,28 @@ class User extends AbstractApi
 
         return $this->getClient()->request('RemoveUser.do', $data);
     }
+
+    /**
+     * @param string $login
+     * @param string $name
+     * @param string $email
+     * @param string $owner
+     * @return array
+     */
+    public function addContact(string $login, string $name, string $email, string $owner = null): array
+    {
+        $data = [
+            'LoginName' => $login,
+            'NewContact' => [
+                'Name' => $name,
+                'Email' => $email
+            ]
+        ];
+
+        if (!is_null($owner)) {
+            $data['Owner'] = $owner;
+        }
+
+        return $this->getClient()->request('AddContact.do', $data);
+    }
 }
